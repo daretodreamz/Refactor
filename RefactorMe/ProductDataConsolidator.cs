@@ -9,25 +9,25 @@ namespace RefactorMe
 {
     public class ProductDataConsolidator
     {
-        public IDictionary<State, IRate> MappingDollars { get; set; }
+        private IDictionary<State, IRate> MappingDollars { get; set; }
         public ProductDataConsolidator()
         {
             MappingDollars = new Dictionary<State, IRate>
                      { { State.NZ, new InNZDollars() }, { State.US, new InUSDollars() }, { State.EURO, new InEuros() } };
         }
-        public double GetRate(State shipToState)
+        private double GetRate(State shipToState)
         {
             return MappingDollars[shipToState].Rate();
         }
-        public IQueryable<Lawnmower> GetLawnmower()
+        private IQueryable<Lawnmower> GetLawnmower()
         {
             return new LawnmowerRepository().GetAll();
         }
-        public IQueryable<PhoneCase> GetPhoneCase()
+        private IQueryable<PhoneCase> GetPhoneCase()
         {
             return new PhoneCaseRepository().GetAll();
         }
-        public IQueryable<TShirt> GetTShirt()
+        private IQueryable<TShirt> GetTShirt()
         {
             return new TShirtRepository().GetAll();
         }
