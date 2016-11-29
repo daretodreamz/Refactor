@@ -4,32 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RefactorMe
 {
-    public enum State
-    { 
-        NZ,
-        US,
-        EURO
-    }
-    public interface IRate
-    {
-        double Rate();
-    }
-    public class InNZDollars : IRate
-    {
-        public double Rate() => 1.00;
-    }
-    public class InUSDollars : IRate
-    {
-       public double Rate() => 0.76;
-    }
-    public class InEuros : IRate
-    {        
-        public double Rate() => 0.67;
-    }
     public class ProductDataConsolidator
     {
         public IDictionary<State, IRate> MappingDollars { get; set; }
@@ -62,5 +39,4 @@ namespace RefactorMe
             return ps.ToList();
         }        
     }
-}             
-
+}
