@@ -9,7 +9,7 @@ namespace RefactorMe
 {
     public class ProductDataConsolidator
     {
-        private IDictionary<State, IRate> MappingDollars { get; set; }
+        private IDictionary<State, IRate> MappingDollars { get; }
         public ProductDataConsolidator()
         {
             MappingDollars = new Dictionary<State, IRate>
